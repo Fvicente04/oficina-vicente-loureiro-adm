@@ -1,63 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { inject } from '@angular/core';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
-  template: `
-    <div class="login-container">
-      <div class="login-box">
-        <div class="login-logo">
-          <span>OFICINA</span>
-          <span class="accent">VICENTE</span>
-          <span>LOUREIRO</span>
-          <small>SISTEMA DE GESTÃO</small>
-        </div>
-        <button class="btn btn--primary btn--full" (click)="entrar()">
-          Entrar (dev)
-        </button>
-      </div>
-    </div>
-  `,
-  styles: [`
-    .login-container {
-      min-height: 100vh;
-      background: #080808;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .login-box {
-      width: 320px;
-      padding: 40px;
-      background: #111111;
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-    .login-logo {
-      display: flex;
-      flex-direction: column;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.05em;
-      color: #F5F5F5;
-      margin-bottom: 32px;
-      line-height: 1;
-      .accent { color: #D4001A; }
-      small {
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        color: rgba(255,255,255,0.4);
-        margin-top: 4px;
-      }
-    }
-  `]
+  imports: [ReactiveFormsModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  private fb = inject(FormBuilder);
+  private auth = inject(AuthService);
   private router = inject(Router);
 
-  entrar(): void {
-    this.router.navigate(['/dashboard']);
+  loading = signal(false);
+  error = signal('');
+
+  form = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
+
+  submit(): void {
+    if (this.form.invalid || this.loading()) return;
+    this.error.set('');
+    this.loading.set(true);
+
+    const { email, password } = this.form.value;
+    this.auth.login(email!, password!).subscribe({
+      next: () => this.router.navigate(['/dashboard']),
+      error: (err) => {
+        this.error.set(err.error?.error || 'E-mail ou senha inválidos');
+        this.loading.set(false);
+      }
+    });
   }
 }

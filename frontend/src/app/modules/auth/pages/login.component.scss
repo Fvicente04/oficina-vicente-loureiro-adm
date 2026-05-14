@@ -1,0 +1,45 @@
+@use 'assets/styles/variables' as *;
+
+.login-page {
+  min-height: 100vh;
+  background: $color-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-4;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  padding: $spacing-10;
+}
+
+.login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $spacing-8;
+
+  &__logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: $spacing-3;
+  }
+
+  &__subtitle {
+    font-family: $font-condensed;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: $color-text-muted;
+    text-align: center;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+}
