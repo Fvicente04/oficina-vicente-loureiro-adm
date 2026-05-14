@@ -19,35 +19,66 @@
 .sidebar__logo {
   display: flex;
   flex-direction: column;
-  padding: 24px 20px 20px;
+  align-items: center;
+  padding: 20px 16px 16px;
   border-bottom: 1px solid $color-border;
+  gap: 8px;
+}
+
+.sidebar__logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  opacity: 0.92;
+
+  svg {
+    width: 100%;
+    max-width: 176px;
+    height: auto;
+    filter: drop-shadow(0 0 6px rgba(212, 0, 26, 0.18));
+  }
+}
+
+.sidebar__logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   line-height: 1;
+  gap: 3px;
 }
 
-.sidebar__logo-line1,
-.sidebar__logo-line2 {
+.sidebar__logo-name {
   font-family: $font-family-heading;
-  font-size: 22px;
-  letter-spacing: $letter-spacing-heading;
-  color: $color-text-primary;
-  text-transform: uppercase;
-}
-
-.sidebar__logo-accent {
-  font-family: $font-family-heading;
-  font-size: 22px;
-  letter-spacing: $letter-spacing-heading;
+  font-size: 18px;
+  letter-spacing: 0.06em;
   color: $color-accent;
   text-transform: uppercase;
+  text-align: center;
 }
 
-.sidebar__logo-sub {
+.sidebar__logo-tagline {
   font-family: $font-family-body-condensed;
-  font-size: 9px;
-  letter-spacing: 0.12em;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: $color-text-primary;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.sidebar__logo-system {
+  font-family: $font-family-body-condensed;
+  font-size: 8px;
+  letter-spacing: 0.1em;
   color: $color-text-secondary;
   text-transform: uppercase;
-  margin-top: 6px;
+  text-align: center;
+  margin-top: 2px;
+  border-top: 1px solid $color-border;
+  padding-top: 4px;
+  width: 100%;
+  text-align: center;
 }
 
 // ── Nav ─────────────────────────────────────────────────────────
