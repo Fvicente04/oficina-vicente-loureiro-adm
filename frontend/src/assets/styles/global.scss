@@ -7,8 +7,13 @@
 // LAYOUT ESTRUTURAL
 // ============================================================
 
-body {
-  display: flex;
+html, body {
+  height: 100%;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
 }
 
 .app-container {
