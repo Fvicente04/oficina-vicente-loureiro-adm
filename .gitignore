@@ -144,3 +144,6 @@ temp/
 dist-*
 *.orig
 *.backup
+
+# Claude
+.claude/
