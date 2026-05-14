@@ -1,0 +1,310 @@
+<!-- ============================================================
+     EXEMPLO DE USO - DESIGN SYSTEM & UTILITIES
+     Demonstra como usar variáveis, componentes e utilities
+     ============================================================ -->
+
+<!-- ============================================================
+     EXEMPLO 1: Layout com Flexbox Utilities
+     ============================================================ -->
+<div class="d-flex justify-between align-center gap-lg p-xl bg-surface">
+  <h1 class="text-2xl font-bold">Título da Página</h1>
+  <button class="btn btn--primary">Ação Principal</button>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 2: Grid com Cards
+     ============================================================ -->
+<div class="grid gap-lg mt-2xl" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))">
+  <!-- Card Simples -->
+  <div class="card">
+    <div class="text-secondary text-sm font-semibold mb-md">Total de Clientes</div>
+    <div class="text-3xl font-bold">1.234</div>
+    <div class="text-xs text-secondary mt-md">+12% vs mês anterior</div>
+  </div>
+
+  <!-- Card KPI (com barra esquerda vermelha) -->
+  <div class="card card--kpi">
+    <div class="text-secondary text-sm font-semibold mb-md">Faturamento</div>
+    <div class="text-3xl font-bold text-accent">R$ 45.678,90</div>
+    <div class="text-xs text-secondary mt-md">Mês de maio</div>
+  </div>
+
+  <!-- Card Elevated (com sombra) -->
+  <div class="card card--elevated">
+    <div class="text-secondary text-sm font-semibold mb-md">Ordens Abertas</div>
+    <div class="text-3xl font-bold">28</div>
+    <div class="progress mt-lg">
+      <div class="progress__bar" style="width: 65%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 3: Status Badges
+     ============================================================ -->
+<div class="d-flex gap-md flex-wrap mt-2xl">
+  <span class="badge badge--aberta">Aberta</span>
+  <span class="badge badge--em-andamento">Em Andamento</span>
+  <span class="badge badge--aguardando">Aguardando Peça</span>
+  <span class="badge badge--concluida">Concluída</span>
+  <span class="badge badge--cancelada">Cancelada</span>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 4: Tabela com Utilities
+     ============================================================ -->
+<table class="table table--striped table--hoverable mt-2xl">
+  <thead>
+    <tr>
+      <th>OS #</th>
+      <th>Cliente</th>
+      <th>Veículo</th>
+      <th>Status</th>
+      <th class="text-right">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="font-bold">#0001</td>
+      <td>João Silva</td>
+      <td>ABC-1234 (Fiat Uno)</td>
+      <td><span class="badge badge--em-andamento">Em Andamento</span></td>
+      <td class="text-right font-bold">R$ 500,00</td>
+    </tr>
+    <tr>
+      <td class="font-bold">#0002</td>
+      <td>Maria Santos</td>
+      <td>XYZ-9876 (Chevrolet Onix)</td>
+      <td><span class="badge badge--concluida">Concluída</span></td>
+      <td class="text-right font-bold">R$ 750,00</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================================
+     EXEMPLO 5: Botões com Variantes
+     ============================================================ -->
+<div class="d-flex gap-md flex-wrap mt-2xl">
+  <button class="btn btn--primary">Salvar</button>
+  <button class="btn btn--secondary">Cancelar</button>
+  <button class="btn btn--ghost">Link</button>
+
+  <!-- Com tamanhos -->
+  <button class="btn btn--primary btn--sm">Pequeno</button>
+  <button class="btn btn--primary btn--lg">Grande</button>
+
+  <!-- Com ícone -->
+  <button class="btn btn--primary btn--icon" title="Adicionar">➕</button>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 6: Forms com Validação
+     ============================================================ -->
+<form class="d-flex flex-column gap-lg p-xl bg-surface mt-2xl">
+  <div class="form-group">
+    <label class="form-label" for="nome">Nome Completo</label>
+    <input
+      type="text"
+      id="nome"
+      class="form-input"
+      placeholder="Digite o nome completo"
+    />
+    <p class="form-help-text">Mínimo 3 caracteres</p>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      class="form-input"
+      placeholder="seu@email.com"
+    />
+    <!-- Erro -->
+    <p class="form-error">Email inválido</p>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="descricao">Descrição</label>
+    <textarea
+      id="descricao"
+      class="form-textarea"
+      placeholder="Digite a descrição..."
+    ></textarea>
+  </div>
+
+  <div class="d-flex gap-md">
+    <button type="submit" class="btn btn--primary">Salvar</button>
+    <button type="reset" class="btn btn--secondary">Limpar</button>
+  </div>
+</form>
+
+<!-- ============================================================
+     EXEMPLO 7: Alerts
+     ============================================================ -->
+<div class="d-flex flex-column gap-md mt-2xl">
+  <div class="alert alert--success">
+    <span class="alert-icon">✓</span>
+    <div class="alert-content">
+      <strong>Sucesso!</strong>
+      <p>Operação realizada com sucesso</p>
+    </div>
+  </div>
+
+  <div class="alert alert--error">
+    <span class="alert-icon">✕</span>
+    <div class="alert-content">
+      <strong>Erro!</strong>
+      <p>Ocorreu um erro ao processar</p>
+    </div>
+  </div>
+
+  <div class="alert alert--warning">
+    <span class="alert-icon">⚠</span>
+    <div class="alert-content">
+      <strong>Atenção!</strong>
+      <p>Esta ação não pode ser desfeita</p>
+    </div>
+  </div>
+
+  <div class="alert alert--info">
+    <span class="alert-icon">ℹ</span>
+    <div class="alert-content">
+      <strong>Informação</strong>
+      <p>Mais informações sobre esta funcionalidade</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 8: Empty State
+     ============================================================ -->
+<div class="empty-state mt-2xl">
+  <svg class="empty-state__icon" viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+    />
+  </svg>
+  <h3 class="empty-state__title">Nenhum resultado encontrado</h3>
+  <p class="empty-state__description">
+    Tente ajustar seus filtros ou adicione um novo item
+  </p>
+  <button class="btn btn--primary mt-lg">Adicionar Novo</button>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 9: Utilidades de Espaçamento
+     ============================================================ -->
+<!-- Margin utilities: m-, mt-, mb-, ml-, mr-, mx-, my- -->
+<div class="m-lg">Margin de 16px em todos os lados</div>
+<div class="mt-2xl mb-md">Margin top 32px, bottom 12px</div>
+<div class="mx-auto">Margin horizontal auto (centra)</div>
+
+<!-- Padding utilities: p-, pt-, pb-, pl-, pr-, px-, py- -->
+<div class="p-lg">Padding de 16px</div>
+<div class="py-xl px-md">Padding vertical 24px, horizontal 12px</div>
+
+<!-- Gap utilities em flexbox -->
+<div class="d-flex gap-xs gap-sm gap-md gap-lg gap-xl gap-2xl">
+  <!-- Gap entre itens -->
+</div>
+
+<!-- ============================================================
+     EXEMPLO 10: Espaçamento de Tipografia
+     ============================================================ -->
+<div class="mt-3xl">
+  <h1 class="text-3xl font-bold text-uppercase mb-lg">Título Nível 1</h1>
+  <h2 class="text-2xl font-bold mb-lg">Título Nível 2</h2>
+  <h3 class="text-xl font-semibold mb-md">Título Nível 3</h3>
+  <p class="text-base text-secondary mb-md">
+    Parágrafo com texto secundário. Máximo 55 caracteres por linha para melhor legibilidade.
+  </p>
+  <p class="text-sm text-muted">Texto pequeno e muted</p>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 11: Cores & Backgrounds
+     ============================================================ -->
+<div class="grid gap-md mt-2xl" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))">
+  <div class="p-lg bg-primary border">bg-primary</div>
+  <div class="p-lg bg-surface border">bg-surface</div>
+  <div class="p-lg bg-surface-secondary border">bg-surface-secondary</div>
+  <div class="p-lg bg-accent text-white border">bg-accent</div>
+</div>
+
+<!-- Text colors -->
+<div class="d-flex flex-column gap-md mt-2xl">
+  <p class="text-primary">Texto primary (padrão)</p>
+  <p class="text-secondary">Texto secondary</p>
+  <p class="text-accent">Texto accent (vermelho)</p>
+  <p class="text-muted">Texto muted</p>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 12: Responsive Design
+     ============================================================ -->
+<!-- Mobile first - diferente em mobile vs desktop -->
+<div class="grid gap-lg" style="grid-template-columns: 1fr">
+  <!-- Em mobile: 1 coluna, em tablet: 2 colunas, em desktop: 3 colunas -->
+  <style>
+    @media (min-width: 640px) {
+      .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .responsive-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</div>
+
+<!-- Hidden utilities -->
+<div class="d-none">Escondido em tela</div>
+<div class="mobile-hidden">Escondido em mobile</div>
+<div class="tablet-hidden">Escondido em tablet</div>
+<div class="desktop-hidden">Escondido em desktop</div>
+
+<!-- ============================================================
+     EXEMPLO 13: Spinner/Loader
+     ============================================================ -->
+<div class="d-flex gap-lg align-center mt-2xl">
+  <div class="spinner"></div>
+  <p class="text-secondary">Carregando...</p>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 14: Dividers
+     ============================================================ -->
+<div class="mt-2xl">
+  <p>Conteúdo antes</p>
+  <div class="divider"></div>
+  <p>Conteúdo depois</p>
+
+  <div class="divider--lg"></div>
+
+  <p>Com espaçamento grande</p>
+</div>
+
+<!-- ============================================================
+     EXEMPLO 15: Custom Grid Layout
+     ============================================================ -->
+<div class="mt-2xl">
+  <!-- Grid responsivo com auto-fit -->
+  <div class="grid gap-lg" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+    <div class="card">Card 4</div>
+  </div>
+
+  <!-- Grid com colunas fixas -->
+  <div class="grid gap-lg mt-lg" style="grid-template-columns: 1fr 2fr 1fr">
+    <div class="card">Sidebar</div>
+    <div class="card">Conteúdo Principal</div>
+    <div class="card">Sidebar</div>
+  </div>
+</div>
