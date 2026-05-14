@@ -1,0 +1,219 @@
+// ============================================================
+// ORDEM DE SERVIÇO - DETALHE COMPONENT STYLES
+// ============================================================
+
+@import '@assets/styles/variables.scss';
+
+.ordem-servico-detalhe {
+  padding: 0;
+
+  // Header
+  header {
+    background-color: $color-bg-surface;
+    border-bottom: 1px solid $color-border;
+    padding: $spacing-lg;
+    margin: -$spacing-lg -$spacing-lg 0 -$spacing-lg;
+    border-radius: $radius-card $radius-card 0 0;
+
+    h1 {
+      @include heading-style($font-size-2xl);
+      margin: 0;
+
+      .text-accent {
+        color: $color-accent;
+        margin-left: $spacing-md;
+      }
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-md;
+    }
+  }
+
+  // Card Base
+  .card {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  // Grid para KPIs
+  .grid {
+    @include desktop {
+      grid-auto-rows: 1fr;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Form
+  form {
+    .form-group {
+      position: relative;
+
+      &:has(.form-input:focus),
+      &:has(.form-textarea:focus) {
+        .form-label {
+          color: $color-accent;
+        }
+      }
+    }
+
+    button {
+      @include smooth-transition(all);
+
+      &:disabled {
+        @include disabled-state;
+      }
+    }
+  }
+
+  // Tabela
+  .table {
+    width: 100%;
+    margin: 0;
+
+    thead {
+      background-color: $color-bg-surface-secondary;
+    }
+
+    tbody tr {
+      @include smooth-transition(background-color);
+
+      &:hover {
+        background-color: $color-bg-surface-secondary;
+      }
+    }
+
+    td:last-child {
+      text-align: right;
+    }
+
+    @include mobile {
+      font-size: $font-size-sm;
+
+      th,
+      td {
+        padding: $spacing-md;
+      }
+    }
+  }
+
+  // Status Buttons
+  .btn {
+    @include smooth-transition(all);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+
+    &--primary {
+      &:active:not(:disabled) {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Badges
+  .badge {
+    display: inline-flex;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-sm;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+  }
+
+  // Informações Adicionais
+  .detalhes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+
+    > div {
+      background-color: $color-bg-surface;
+      padding: $spacing-lg;
+      border: 1px solid $color-border;
+      border-radius: $radius-xs;
+
+      .label {
+        font-size: $font-size-xs;
+        color: $color-text-secondary;
+        text-transform: uppercase;
+        font-weight: $font-weight-semibold;
+        margin-bottom: $spacing-sm;
+      }
+
+      .value {
+        font-size: $font-size-base;
+        color: $color-text-primary;
+        font-weight: $font-weight-semibold;
+
+        &.accent {
+          color: $color-accent;
+        }
+      }
+    }
+  }
+
+  // Animações
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Loading State
+  .loading-container {
+    @include flex-center;
+    min-height: 300px;
+  }
+
+  // Error State
+  .error-container {
+    @include flex-center;
+    min-height: 300px;
+    flex-direction: column;
+    text-align: center;
+    gap: $spacing-lg;
+
+    .error-icon {
+      width: 60px;
+      height: 60px;
+      opacity: 0.5;
+    }
+
+    .error-message {
+      color: $color-text-secondary;
+    }
+  }
+
+  // Responsive
+  @include mobile {
+    header {
+      .d-flex {
+        width: 100%;
+
+        &:last-child {
+          width: 100%;
+
+          button {
+            flex: 1;
+          }
+        }
+      }
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
