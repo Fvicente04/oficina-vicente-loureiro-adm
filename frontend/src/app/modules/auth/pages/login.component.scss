@@ -2,38 +2,38 @@
 
 .login-page {
   min-height: 100vh;
-  background: $color-bg;
+  background: $color-bg-primary;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: $spacing-4;
+  padding: $spacing-lg;
 }
 
 .login-card {
   width: 100%;
   max-width: 380px;
-  background: $color-surface;
+  background: $color-bg-surface;
   border: 1px solid $color-border;
-  padding: $spacing-10;
+  padding: $spacing-3xl;
 }
 
 .login-brand {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: $spacing-8;
+  margin-bottom: $spacing-2xl;
 
   &__logo {
     width: 160px;
     height: auto;
-    margin-bottom: $spacing-3;
+    margin-bottom: $spacing-md;
   }
 
   &__subtitle {
-    font-family: $font-condensed;
-    font-size: 11px;
+    font-family: $font-family-body-condensed;
+    font-size: $font-size-xs;
     letter-spacing: 0.15em;
-    color: $color-text-muted;
+    color: $color-text-secondary;
     text-align: center;
   }
 }
@@ -41,5 +41,5 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: $spacing-5;
+  gap: $spacing-xl;
 }
