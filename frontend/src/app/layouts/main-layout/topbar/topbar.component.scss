@@ -1,0 +1,41 @@
+@use 'assets/styles/variables' as *;
+
+.topbar {
+  height: $topbar-height;
+  background-color: $color-bg-surface;
+  border-bottom: 1px solid $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $content-padding;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+}
+
+.topbar__title {
+  font-family: $font-family-heading;
+  font-size: 20px;
+  letter-spacing: $letter-spacing-heading;
+  color: $color-text-primary;
+  text-transform: uppercase;
+  font-weight: $font-weight-regular;
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.topbar__btn-nova-os {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-family-body-condensed;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+}

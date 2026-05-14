@@ -1,0 +1,147 @@
+@use 'assets/styles/variables' as *;
+
+.sidebar {
+  width: $sidebar-width;
+  background-color: $color-bg-sidebar;
+  border-right: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex-shrink: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-fixed;
+}
+
+// ── Logo ────────────────────────────────────────────────────────
+.sidebar__logo {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid $color-border;
+  line-height: 1;
+}
+
+.sidebar__logo-line1,
+.sidebar__logo-line2 {
+  font-family: $font-family-heading;
+  font-size: 22px;
+  letter-spacing: $letter-spacing-heading;
+  color: $color-text-primary;
+  text-transform: uppercase;
+}
+
+.sidebar__logo-accent {
+  font-family: $font-family-heading;
+  font-size: 22px;
+  letter-spacing: $letter-spacing-heading;
+  color: $color-accent;
+  text-transform: uppercase;
+}
+
+.sidebar__logo-sub {
+  font-family: $font-family-body-condensed;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+// ── Nav ─────────────────────────────────────────────────────────
+.sidebar__nav {
+  flex: 1;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  color: $color-text-secondary;
+  text-decoration: none;
+  font-family: $font-family-body-condensed;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-left: 3px solid transparent;
+  transition: color $transition-fast, background-color $transition-fast;
+
+  &:hover {
+    color: $color-text-primary;
+    background-color: rgba($color-accent, 0.04);
+  }
+
+  &--active {
+    color: $color-text-primary;
+    background-color: rgba($color-accent, 0.06);
+    border-left-color: $color-accent;
+  }
+}
+
+.sidebar__nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.sidebar__nav-label {
+  white-space: nowrap;
+}
+
+// ── Footer ──────────────────────────────────────────────────────
+.sidebar__footer {
+  padding: 16px 20px;
+  border-top: 1px solid $color-border;
+}
+
+.sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar__user-avatar {
+  width: 32px;
+  height: 32px;
+  background-color: $color-accent;
+  color: white;
+  font-family: $font-family-heading;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar__user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar__user-name {
+  font-size: 12px;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__user-role {
+  font-size: 10px;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
