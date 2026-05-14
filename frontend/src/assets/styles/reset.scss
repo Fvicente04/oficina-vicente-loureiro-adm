@@ -1,0 +1,239 @@
+// ============================================================
+// OFICINA VICENTE LOUREIRO - RESET & NORMALIZE
+// ============================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color-bg-primary;
+  color: $color-text-primary;
+  font-family: $font-family-body;
+  @include body-text($font-size-base, $font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include heading-style($font-size-xl);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  @include heading-style($font-size-3xl);
+}
+
+h2 {
+  @include heading-style($font-size-2xl);
+}
+
+h3 {
+  @include heading-style($font-size-xl);
+}
+
+h4 {
+  @include heading-style($font-size-lg);
+}
+
+h5 {
+  @include heading-style($font-size-base);
+}
+
+h6 {
+  @include heading-style($font-size-sm);
+}
+
+// Paragraphs and Text
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  @include smooth-transition(color);
+
+  &:hover {
+    color: lighten($color-accent, 10%);
+  }
+
+  &:focus {
+    @include focus-outline;
+  }
+}
+
+// Lists
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+// Forms
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  &:disabled {
+    @include disabled-state;
+  }
+}
+
+input,
+textarea,
+select {
+  border: 1px solid $color-border;
+  padding: $spacing-md;
+  background-color: $color-bg-surface;
+  color: $color-text-primary;
+  @include smooth-transition(border-color, box-shadow);
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    box-shadow: 0 0 0 2px $color-accent-light;
+  }
+
+  &::placeholder {
+    color: $color-text-secondary;
+  }
+
+  &:disabled {
+    @include disabled-state;
+    background-color: $color-bg-surface-secondary;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg-surface;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-border;
+  border-radius: $radius-sm;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+thead {
+  background-color: $color-bg-surface;
+  border-bottom: 1px solid $color-border;
+}
+
+tbody tr {
+  border-bottom: 1px solid $color-border;
+
+  &:hover {
+    background-color: $color-bg-surface;
+  }
+}
+
+th {
+  @include heading-style($font-size-sm);
+  padding: $spacing-lg;
+  text-align: left;
+  color: $color-text-secondary;
+}
+
+td {
+  padding: $spacing-lg;
+  color: $color-text-primary;
+}
+
+// Code
+code,
+pre {
+  font-family: 'Monaco', 'Courier New', monospace;
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+}
+
+code {
+  padding: 2px 6px;
+  font-size: $font-size-sm;
+}
+
+pre {
+  padding: $spacing-md;
+  overflow-x: auto;
+
+  code {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+// Selection
+::selection {
+  background-color: $color-accent;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: $color-accent;
+  color: white;
+}

@@ -1,0 +1,157 @@
+// ============================================================
+// OFICINA VICENTE LOUREIRO - GLOBAL STYLES
+// Importa todas as variáveis, reset, componentes e utilities
+// ============================================================
+
+// 1. Variáveis (deve ser primeiro)
+@import 'variables.scss';
+
+// 2. Reset & Normalize
+@import 'reset.scss';
+
+// 3. Componentes Base
+@import 'components.scss';
+
+// 4. Utilities
+@import 'utilities.scss';
+
+// ============================================================
+// ESTILOS GLOBAIS ADICIONAIS
+// ============================================================
+
+// Body & Container
+body {
+  display: flex;
+}
+
+// Main Layout Container
+.app-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: $color-bg-primary;
+}
+
+// Sidebar
+.app-sidebar {
+  width: $sidebar-width;
+  background-color: $color-bg-sidebar;
+  border-right: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+// Main Content Area
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+// Topbar
+.app-topbar {
+  height: $topbar-height;
+  background-color: $color-bg-surface;
+  border-bottom: 1px solid $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $content-padding;
+  flex-shrink: 0;
+}
+
+// Content Area
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: $content-padding;
+}
+
+// ============================================================
+// SCROLL CUSTOMIZATION
+// ============================================================
+
+.app-content::-webkit-scrollbar,
+.app-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.app-content::-webkit-scrollbar-track,
+.app-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.app-content::-webkit-scrollbar-thumb,
+.app-sidebar::-webkit-scrollbar-thumb {
+  background: $color-border;
+  border-radius: $radius-sm;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+// ============================================================
+// THEME TRANSITIONS
+// ============================================================
+
+* {
+  &.theme-transition {
+    @include smooth-transition(background-color, border-color, color);
+  }
+}
+
+// ============================================================
+// PRINT STYLES
+// ============================================================
+
+@media print {
+  .no-print,
+  .app-sidebar,
+  .app-topbar,
+  button,
+  a {
+    display: none !important;
+  }
+
+  .app-content {
+    padding: 0;
+    background: white;
+    color: black;
+  }
+}
+
+// ============================================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================================
+
+@include mobile {
+  $sidebar-width: 200px;
+
+  .app-sidebar {
+    width: $sidebar-width;
+  }
+
+  .app-topbar {
+    padding: 0 $spacing-lg;
+  }
+
+  .app-content {
+    padding: $spacing-lg;
+  }
+}
+
+// ============================================================
+// DARK MODE (já é o padrão do sistema)
+// ============================================================
+
+// Se no futuro houver um toggle de tema, essas variáveis
+// podem ser redefinidas em um :root[data-theme="light"]
+:root {
+  color-scheme: dark;
+}
