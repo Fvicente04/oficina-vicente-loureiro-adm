@@ -1,30 +1,16 @@
-// ============================================================
-// OFICINA VICENTE LOUREIRO - GLOBAL STYLES
-// Importa todas as variáveis, reset, componentes e utilities
-// ============================================================
-
-// 1. Variáveis (deve ser primeiro)
-@import 'variables.scss';
-
-// 2. Reset & Normalize
-@import 'reset.scss';
-
-// 3. Componentes Base
-@import 'components.scss';
-
-// 4. Utilities
-@import 'utilities.scss';
+@use 'variables' as *;
+@use 'reset';
+@use 'components';
+@use 'utilities';
 
 // ============================================================
-// ESTILOS GLOBAIS ADICIONAIS
+// LAYOUT ESTRUTURAL
 // ============================================================
 
-// Body & Container
 body {
   display: flex;
 }
 
-// Main Layout Container
 .app-container {
   display: flex;
   width: 100%;
@@ -32,7 +18,6 @@ body {
   background-color: $color-bg-primary;
 }
 
-// Sidebar
 .app-sidebar {
   width: $sidebar-width;
   background-color: $color-bg-sidebar;
@@ -44,16 +29,15 @@ body {
   overflow-y: auto;
 }
 
-// Main Content Area
 .app-main {
   flex: 1;
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  margin-left: $sidebar-width;
 }
 
-// Topbar
 .app-topbar {
   height: $topbar-height;
   background-color: $color-bg-surface;
@@ -65,7 +49,6 @@ body {
   flex-shrink: 0;
 }
 
-// Content Area
 .app-content {
   flex: 1;
   overflow-y: auto;
@@ -73,7 +56,7 @@ body {
 }
 
 // ============================================================
-// SCROLL CUSTOMIZATION
+// SCROLLBAR
 // ============================================================
 
 .app-content::-webkit-scrollbar,
@@ -97,17 +80,15 @@ body {
 }
 
 // ============================================================
-// THEME TRANSITIONS
+// DARK MODE
 // ============================================================
 
-* {
-  &.theme-transition {
-    @include smooth-transition(background-color, border-color, color);
-  }
+:root {
+  color-scheme: dark;
 }
 
 // ============================================================
-// PRINT STYLES
+// PRINT
 // ============================================================
 
 @media print {
@@ -124,34 +105,4 @@ body {
     background: white;
     color: black;
   }
-}
-
-// ============================================================
-// RESPONSIVE ADJUSTMENTS
-// ============================================================
-
-@include mobile {
-  $sidebar-width: 200px;
-
-  .app-sidebar {
-    width: $sidebar-width;
-  }
-
-  .app-topbar {
-    padding: 0 $spacing-lg;
-  }
-
-  .app-content {
-    padding: $spacing-lg;
-  }
-}
-
-// ============================================================
-// DARK MODE (já é o padrão do sistema)
-// ============================================================
-
-// Se no futuro houver um toggle de tema, essas variáveis
-// podem ser redefinidas em um :root[data-theme="light"]
-:root {
-  color-scheme: dark;
 }

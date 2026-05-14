@@ -81,7 +81,7 @@
           "options": {
             "port": 4200,
             "host": "localhost",
-            "proxy": "src/proxy.conf.json"
+            "proxyConfig": "src/proxy.conf.json"
           }
         },
         "extract-i18n": {

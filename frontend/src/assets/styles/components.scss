@@ -1,6 +1,5 @@
-// ============================================================
-// OFICINA VICENTE LOUREIRO - COMPONENTES BASE
-// ============================================================
+@use 'sass:color';
+@use 'variables' as *;
 
 // ============================================================
 // BOTÕES
@@ -27,15 +26,14 @@
     @include focus-outline;
   }
 
-  // Variantes
   &--primary {
     background-color: $color-accent;
     color: white;
     border-color: $color-accent;
 
     &:hover:not(:disabled) {
-      background-color: darken($color-accent, 10%);
-      border-color: darken($color-accent, 10%);
+      background-color: color.adjust($color-accent, $lightness: -10%);
+      border-color: color.adjust($color-accent, $lightness: -10%);
     }
   }
 
@@ -60,7 +58,6 @@
     }
   }
 
-  // Tamanhos
   &--sm {
     padding: $spacing-sm $spacing-md;
     font-size: $font-size-xs;
@@ -75,7 +72,6 @@
     width: 100%;
   }
 
-  // Com ícone
   &--icon {
     padding: $spacing-md;
     width: 40px;
@@ -111,7 +107,6 @@
     }
   }
 
-  // Card com barra de acento (KPI)
   &--kpi {
     @include border-accent-left;
   }
@@ -131,35 +126,30 @@
   border-radius: $radius-sm;
   text-transform: uppercase;
 
-  // Status Aberta (Amarelo)
   &--aberta {
     background-color: rgba(255, 193, 7, 0.12);
     color: #FFC107;
     border: 1px solid rgba(255, 193, 7, 0.35);
   }
 
-  // Status Em Andamento (Azul)
   &--em-andamento {
     background-color: rgba(33, 150, 243, 0.12);
     color: #2196F3;
     border: 1px solid rgba(33, 150, 243, 0.35);
   }
 
-  // Status Concluída (Verde)
   &--concluida {
     background-color: rgba(76, 175, 80, 0.12);
     color: #4CAF50;
     border: 1px solid rgba(76, 175, 80, 0.35);
   }
 
-  // Status Aguardando Peça (Vermelho)
   &--aguardando {
     background-color: $color-accent-light;
     color: $color-accent;
     border: 1px solid $color-accent-border;
   }
 
-  // Status Cancelada (Cinza)
   &--cancelada {
     background-color: rgba(158, 158, 158, 0.12);
     color: #9E9E9E;
@@ -168,7 +158,7 @@
 }
 
 // ============================================================
-// INPUTS E FORM
+// FORM
 // ============================================================
 
 .form-group {
@@ -274,12 +264,10 @@
     color: $color-text-primary;
   }
 
-  // Variante striped
   &--striped tbody tr:nth-child(odd) {
     background-color: $color-bg-surface-secondary;
   }
 
-  // Variante hoverable
   &--hoverable tbody tr {
     cursor: pointer;
 
@@ -347,50 +335,7 @@
 }
 
 // ============================================================
-// TOOLTIP
-// ============================================================
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-
-  &__text {
-    visibility: hidden;
-    background-color: $color-bg-surface-secondary;
-    color: $color-text-primary;
-    text-align: center;
-    border-radius: $radius-sm;
-    padding: $spacing-sm $spacing-md;
-    position: absolute;
-    z-index: $z-tooltip;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: $font-size-xs;
-    border: 1px solid $color-border;
-    white-space: nowrap;
-    opacity: 0;
-    @include smooth-transition(opacity);
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 6px solid transparent;
-      border-top-color: $color-bg-surface-secondary;
-    }
-  }
-
-  &:hover &__text {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-// ============================================================
-// SPINNER/LOADER
+// SPINNER
 // ============================================================
 
 .spinner {
@@ -404,9 +349,7 @@
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 // ============================================================
@@ -426,17 +369,9 @@
     background-color: $color-accent;
     @include smooth-transition(width);
 
-    &--success {
-      background-color: #4CAF50;
-    }
-
-    &--warning {
-      background-color: #FFC107;
-    }
-
-    &--error {
-      background-color: $color-accent;
-    }
+    &--success { background-color: #4CAF50; }
+    &--warning { background-color: #FFC107; }
+    &--error   { background-color: $color-accent; }
   }
 }
 
@@ -479,16 +414,50 @@
   background-color: $color-border;
   margin: $spacing-lg 0;
 
-  &--sm {
-    margin: $spacing-md 0;
+  &--sm { margin: $spacing-md 0; }
+  &--lg { margin: $spacing-2xl 0; }
+  &--vertical { height: auto; width: 1px; }
+}
+
+// ============================================================
+// TOOLTIP
+// ============================================================
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  &__text {
+    visibility: hidden;
+    background-color: $color-bg-surface-secondary;
+    color: $color-text-primary;
+    text-align: center;
+    border-radius: $radius-sm;
+    padding: $spacing-sm $spacing-md;
+    position: absolute;
+    z-index: $z-tooltip;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: $font-size-xs;
+    border: 1px solid $color-border;
+    white-space: nowrap;
+    opacity: 0;
+    @include smooth-transition(opacity);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: $color-bg-surface-secondary;
+    }
   }
 
-  &--lg {
-    margin: $spacing-2xl 0;
-  }
-
-  &--vertical {
-    height: auto;
-    width: 1px;
+  &:hover &__text {
+    visibility: visible;
+    opacity: 1;
   }
 }

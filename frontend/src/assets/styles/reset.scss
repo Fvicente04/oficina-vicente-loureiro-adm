@@ -1,6 +1,5 @@
-// ============================================================
-// OFICINA VICENTE LOUREIRO - RESET & NORMALIZE
-// ============================================================
+@use 'sass:color';
+@use 'variables' as *;
 
 * {
   margin: 0;
@@ -30,43 +29,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Headings
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   @include heading-style($font-size-xl);
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  @include heading-style($font-size-3xl);
-}
+h1 { @include heading-style($font-size-3xl); }
+h2 { @include heading-style($font-size-2xl); }
+h3 { @include heading-style($font-size-xl); }
+h4 { @include heading-style($font-size-lg); }
+h5 { @include heading-style($font-size-base); }
+h6 { @include heading-style($font-size-sm); }
 
-h2 {
-  @include heading-style($font-size-2xl);
-}
-
-h3 {
-  @include heading-style($font-size-xl);
-}
-
-h4 {
-  @include heading-style($font-size-lg);
-}
-
-h5 {
-  @include heading-style($font-size-base);
-}
-
-h6 {
-  @include heading-style($font-size-sm);
-}
-
-// Paragraphs and Text
 p {
   margin: 0;
   padding: 0;
@@ -78,7 +53,7 @@ a {
   @include smooth-transition(color);
 
   &:hover {
-    color: lighten($color-accent, 10%);
+    color: color.adjust($color-accent, $lightness: 10%);
   }
 
   &:focus {
@@ -86,9 +61,7 @@ a {
   }
 }
 
-// Lists
-ul,
-ol {
+ul, ol {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -99,11 +72,7 @@ li {
   padding: 0;
 }
 
-// Forms
-input,
-textarea,
-select,
-button {
+input, textarea, select, button {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
@@ -121,9 +90,7 @@ button {
   }
 }
 
-input,
-textarea,
-select {
+input, textarea, select {
   border: 1px solid $color-border;
   padding: $spacing-md;
   background-color: $color-bg-surface;
@@ -151,7 +118,6 @@ textarea {
   min-height: 120px;
 }
 
-// Scrollbar
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -170,7 +136,6 @@ textarea {
   }
 }
 
-// Tables
 table {
   width: 100%;
   border-collapse: collapse;
@@ -202,9 +167,7 @@ td {
   color: $color-text-primary;
 }
 
-// Code
-code,
-pre {
+code, pre {
   font-family: 'Monaco', 'Courier New', monospace;
   background-color: $color-bg-surface;
   border: 1px solid $color-border;
@@ -227,7 +190,6 @@ pre {
   }
 }
 
-// Selection
 ::selection {
   background-color: $color-accent;
   color: white;
